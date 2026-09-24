@@ -22,3 +22,13 @@ function base64UrlEncode(bytes) {
     .replace(/\//g, "_")
     .replace(/=+$/, "");
 }
+
+export async function sha256Base64Url(input) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input); // string -> bytes UTF-8
+
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashBytes = new Uint8Array(hashBuffer);
+
+  return base64UrlEncode(hashBytes);
+}
