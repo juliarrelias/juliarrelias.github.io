@@ -1,0 +1,2 @@
+https://projetologin.pages.dev
+https://projetologin.pages.dev/oauth/callback/github
